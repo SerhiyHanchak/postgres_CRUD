@@ -4,7 +4,7 @@ const app = require('./src/app');
 const expect = require('chai').expect;
 const should = require('should');
 
-describe("Test get requests - get by id and get all users", () => {
+describe("Test all get requests - get by id and get all users", () => {
   before(done => {
     knex.migrate
       .latest()
@@ -19,7 +19,11 @@ describe("Test get requests - get by id and get all users", () => {
     request(app)
       .get("/user")
       .set("Accept", "application/json")
-      .expect(200, done);
+      .expect(200)
+      .end((err,res)=>{
+        res.body.should.be.instanceof(Array).and.have.lengthOf(5);
+        done();
+      })
   }),
     it("Get user by id - should return the user with id:1", done => {
       request(app)

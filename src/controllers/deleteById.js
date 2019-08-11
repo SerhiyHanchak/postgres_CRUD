@@ -3,6 +3,7 @@ const user = new User();
 
 module.exports = async function deleteUser(req, res, next) {
   const { id } = req.params;
+  
   try {
     const result = await user.deleteUser(id);
     if (result != 0) {
