@@ -6,5 +6,5 @@ module.exports = function errorHandler (err, req, res, next) {
         stack : err.stack
     }
     console.error(err.message || err);
-    res.status(status).render("error",responseData)
+    res.status(status).send(responseData)
 }
