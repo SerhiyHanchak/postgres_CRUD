@@ -1,0 +1,31 @@
+{
+  "name": "project_postgress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --exit",
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "author": "serjG",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.20.0",
+    "http-errors": "^1.7.3",
+    "knex": "^0.19.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
+  }
+}
