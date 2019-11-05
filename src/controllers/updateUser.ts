@@ -1,12 +1,13 @@
-const User = require("../models/user");
+import User from "../models/user";
+import validate from "../utils/validateObject";
+import schema from "../schemas/updateSchema";
+import { NextFunction, Request, Response } from 'express';
 const user = new User();
-const validate = require("../utils/validateObject");
-const schema = require("../schemas/updateSchema");
 
-module.exports = async function updateUserById(req, res, next) {
+async function updateUserById(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
   const { firstName, lastName, age, gender, login } = req.body;
-  
+
   try {
     await validate({ firstName, lastName, age, gender, login }, schema);
     const result = await user.updateUser(id, {
@@ -24,3 +25,5 @@ module.exports = async function updateUserById(req, res, next) {
     return next(err);
   }
 };
+
+export default updateUserById;

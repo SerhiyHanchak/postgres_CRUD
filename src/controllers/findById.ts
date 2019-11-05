@@ -1,9 +1,10 @@
-const User = require("../models/user");
+import User from "../models/user";
+import { NextFunction, Request, Response } from 'express';
 const user = new User();
 
-module.exports = async function findById(req, res, next) {
+async function findById(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
-  
+
   try {
     if (!isNaN(id)) {
       const result = await user.findUserById(id);
@@ -21,3 +22,5 @@ module.exports = async function findById(req, res, next) {
     return next(err);
   }
 };
+
+export default findById;

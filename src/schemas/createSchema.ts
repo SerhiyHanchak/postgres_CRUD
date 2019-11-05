@@ -1,6 +1,6 @@
-const Joi = require('@hapi/joi');
+import * as Joi from '@hapi/joi';
 
-const schema = Joi.object().keys({
+let schema = Joi.object().keys({
     firstName: Joi.string().required(),
     lastName: Joi.string().min(3).max(20).required(),
     age: Joi.number().integer().min(18).max(110).required(),
@@ -8,4 +8,4 @@ const schema = Joi.object().keys({
     login: Joi.string().min(3).max(20).required()
 })
 
-module.exports = schema;
+export default schema;

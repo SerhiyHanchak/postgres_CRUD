@@ -1,9 +1,10 @@
-const User = require('../models/user');
+import User from '../models/user';
+import { NextFunction, Request, Response } from 'express';
 const user = new User();
 
-module.exports = async function deleteUser(req, res, next) {
+async function deleteUser(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
-  
+
   try {
     const result = await user.deleteUser(id);
     if (result != 0) {
@@ -12,9 +13,11 @@ module.exports = async function deleteUser(req, res, next) {
         message: `user with id:${id} - was successfully removed`
       });
     } else {
-      res.status(400).send({message:`No user with such id:${id}`})
+      res.status(400).send({ message: `No user with such id:${id}` })
     }
   } catch (err) {
     return next(err);
   }
 };
+
+export default deleteUser;

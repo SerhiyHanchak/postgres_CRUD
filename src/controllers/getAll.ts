@@ -1,7 +1,8 @@
-const User = require("../models/user");
+import User from "../models/user";
+import { NextFunction, Request, Response } from 'express';
 const user = new User();
 
-module.exports = async function getAll(req, res, next) {
+async function getAll(req: Request, res: Response, next: NextFunction) {
   try {
     const result = await user.getAllUsers();
     if (result.length != 0) {
@@ -13,3 +14,5 @@ module.exports = async function getAll(req, res, next) {
     return next(err);
   }
 };
+
+export default getAll;

@@ -1,4 +1,6 @@
-exports.seed = async function(knex) {
+import * as Knex from 'knex';
+
+export async function seed(knex: Knex): Promise<any> {
   await knex("users").del()
   await knex("users").insert([
     {
@@ -41,5 +43,5 @@ exports.seed = async function(knex) {
       gender:"Male",
       login:"JackMoll35"
     }
-  ]);
+  ]); 
 };
