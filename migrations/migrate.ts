@@ -9,6 +9,7 @@ export async function up(knex: Knex): Promise<any> {
     table.text("gender");
     table.text("login").unique();
     table.timestamp("created_at").defaultTo(knex.fn.now());
+    table.text("password")
   });
 }
 

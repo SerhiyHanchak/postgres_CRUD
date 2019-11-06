@@ -4,28 +4,37 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "compile": "tsc",
     "test": "mocha --exit",
-    "start": "nodemon ./dist/server.js"
+    "start": "nodemon ./dist/server.js",
+    "lint": "tslint src/**/*.ts{,x}"
   },
   "author": "serjG",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
-    "@types/node": "^12.12.5",
+    "@types/node": "^12.12.6",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.20.0",
     "http-errors": "^1.7.3",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.1",
+    "lodash": "^4.17.15",
     "morgan": "^1.9.1",
     "pg": "^7.12.0",
     "typescript": "^3.6.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint": "^6.6.0",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
     "should": "^13.2.3",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "tslint": "^5.20.1"
   }
 }

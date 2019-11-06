@@ -6,6 +6,12 @@ module.exports = {
       user: "postgres",
       password: "serjDev",
       database: "postgres_db"
+    },
+    migrations: {
+      directory: './dist/migrations'
+    },
+    seeds: {
+      directory: './dist/seeds'
     }
   }
 };

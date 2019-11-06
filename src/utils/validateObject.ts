@@ -1,5 +1,5 @@
-import Joi from "@hapi/joi";
-import createError from "http-errors";
+import * as Joi from "@hapi/joi";
+import * as createError from "http-errors";
 
 async function validation(object: object, schema: object) {
   try {

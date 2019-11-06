@@ -1,15 +1,16 @@
-import User from '../models/user';
-import validate from '../utils/validateObject';
-import schema from '../schemas/createSchema';
+import User from "../models/user";
+import validate from "../utils/validateObject";
+import schema from "../schemas/updateSchema";
 import { NextFunction, Request, Response } from 'express';
 const user = new User();
 
-async function createUser(req: Request, res: Response, next: NextFunction) {
+async function updateUserById(req: Request, res: Response, next: NextFunction) {
+  const { id } = req.params;
   const { firstName, lastName, age, gender, login } = req.body;
 
   try {
     await validate({ firstName, lastName, age, gender, login }, schema);
-    const result = await user.createUser({
+    await user.updateUser(id, {
       firstName,
       lastName,
       age,
@@ -17,12 +18,12 @@ async function createUser(req: Request, res: Response, next: NextFunction) {
       login
     });
     return res.json({
-      created: true,
-      message: 'user was successfully created'
+      updated: true,
+      message: `user with id:${id} was successfully updated`
     });
   } catch (err) {
     return next(err);
   }
 };
 
-export default createUser;
+export default updateUserById;
