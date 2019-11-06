@@ -2,7 +2,6 @@ import environmentConfig from '../db/config';
 import * as knex from 'knex';
 let connection = knex(environmentConfig);
 
-
 class User {
     public connection: any;
     constructor() {
